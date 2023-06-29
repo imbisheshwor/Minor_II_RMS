@@ -1,0 +1,21 @@
+.chart{ 
+   flex:4; 
+   flex-direction:row;
+   -webkit-box-shadow: 2px 4px 10px 1px rgba(77, 61, 61, 0.47);
+   box-shadow: 20px 1px 20px 1px rgba(46, 46, 47, 0.47);
+   background-image:linear-gradient(rgba(214, 205, 234,0.1),rgba(214, 205, 234, 0.4));
+   padding:15px;
+   color:gray;
+   border-radius: 15px;
+   margin:1rem;
+
+   .title{ 
+    margin-bottom: 20px;
+    font-weight:bold; 
+    font-size:20px;
+
+   }
+   .chartGrid{
+    stroke: rgb(202, 191, 191);
+   }
+}

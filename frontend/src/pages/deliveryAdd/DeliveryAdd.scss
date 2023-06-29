@@ -1,0 +1,41 @@
+.home{
+    display:flex; 
+
+    .homeContainer{
+         flex:6;
+
+
+         .form-group{
+            -webkit-box-shadow: 2px 4px 10px 1px rgba(77, 61, 61, 0.47);
+            box-shadow: 20px 1px 20px 1px rgba(46, 46, 47, 0.47);
+            background-color: #CCCCFF;
+            padding:15px;
+            margin:5rem;
+            border-radius: 15px;
+
+            
+            
+                .icon {
+                    height:40px;
+                    width:50px;
+                    color: #595959;
+                    margin:2rem;
+                  
+
+                  }
+
+            // .title{ 
+            //     margin-bottom: 20px;
+            //     font-weight:bold; 
+            //     font-size:20px;
+            
+               
+               .btn{
+                margin:2rem;
+                background-color:#7998EE ;
+                border-color:#7998EE;
+            } 
+        }
+         }
+
+    }
