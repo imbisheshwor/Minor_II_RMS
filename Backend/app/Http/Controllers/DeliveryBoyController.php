@@ -135,4 +135,7 @@ class DeliveryBoyController extends Controller
             'message' => MessageDisplay:: ACTIVATED,
         ]);
     }
+    function delete() {
+        echo "delete";
+    }
 }
