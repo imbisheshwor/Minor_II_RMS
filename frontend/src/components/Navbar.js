@@ -66,6 +66,7 @@ const Navbar = () => {
 
         <Link to="/menu">Menu</Link>
        
+       
         <Link to="/cart">
           <BsCart2 className="navbar-cart-icon" />
         </Link>

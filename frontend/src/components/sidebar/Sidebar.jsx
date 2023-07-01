@@ -16,7 +16,7 @@ const Sidebar = () => {
   //        fontSize:" 14px"
   //  };
   return (
-    <Container className="sidebar">
+    <Container className="asidebar">
       
       <Row className="top">
         <Col>

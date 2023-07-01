@@ -118,7 +118,11 @@ nav {
 .navbar-menu-container svg {
   font-size: 1.5rem;
   cursor: pointer;
+
 }
+
+
+
 
 
 .navbar-icon {
@@ -126,6 +130,7 @@ nav {
   color: #db9327;
   width: 40px;
   height: 30px;
+
 }
 /*--------------------------------------------------------------------------
                           #Sidebar

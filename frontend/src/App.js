@@ -111,7 +111,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes >
-          {/* <Route index element={<Navigate to="/home" />} />
+           <Route index element={<Navigate to="/home" />} />
 
           <Route path="home" element={<FrontHome />} />
           <Route path="about" element={<About />} />
@@ -149,7 +149,7 @@ function App() {
           <Route path="*" element={<Error />} />
 
           <Route path="categories" element={<Categories />} />
-          <Route path="bookatable" element={<Bookatable />} /> */}
+          <Route path="bookatable" element={<Bookatable />} /> 
 
 
           <Route path="admin">
