@@ -71,7 +71,7 @@ const Otp = () => {
 
     //  </div>
 
-    <div className="container my-5">
+    <div className="lcontainer my-5">
       <div className="card shadow-lg p-3 mb-5 bg-white rounded">
         <div className="rounded mx-auto d-block">
           <img src={Otpp} className="center-block d-block mx-auto" alt="" />

@@ -16,7 +16,7 @@ const Sidebar = () => {
   //        fontSize:" 14px"
   //  };
   return (
-    <div className="adminsidebar">
+    <Container className="sidebar">
       
       <div className="top">
 

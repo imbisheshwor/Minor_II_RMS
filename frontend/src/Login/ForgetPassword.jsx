@@ -47,13 +47,9 @@ const  ForgetPassword =()=> {
   };
  
   return (
-    <>
-
-   
-    <div className="nav-logo-container">
+    <><div className="nav-logo-container">
       <Link to="/home" className="heading">RMS</Link>
-    </div>
-    <div className="container my-5">
+    </div><div className="container my-5">
         <div className="card shadow-lg p-3 mb-5 bg-white rounded">
           <div className="rounded mx-auto d-block">
             <img src={Password} className="center-block d-block mx-auto" alt="" />

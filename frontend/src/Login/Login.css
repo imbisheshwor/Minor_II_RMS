@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap');
- .container {
+.container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -8,7 +8,7 @@
 
 }
 
-.container .card .side {
+.lcontainer .card .side {
   background-color: #ffff;
   height: 100%;
   border-top-right-radius: 10px; 
@@ -62,7 +62,7 @@
   margin-top: 20px;
 }
 input[type="text"] {
-  height: 45px;;
+  height: 45px;
   width: 100%;
   border: none;
   outline: 0;
@@ -72,7 +72,7 @@ input[type="text"] {
   border: 1px solid #000;
 }
 input[type="number"] {
-  height: 45px;;
+  height: 45px;
   width: 100%;
   border: none;
   outline: 0;
@@ -259,10 +259,10 @@ input[type="time"] {
   border: 1px solid red !important;
 }
 @media (max-width: 750px) {
-  .container .card {
+  .lcontainer .card {
     max-width: 350px;
   }
-  .container .card .side {
+  .lcontainer .card .side {
     border-radius: 10px;
     width: 100%;
   }

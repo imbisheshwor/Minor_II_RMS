@@ -65,10 +65,10 @@ const Login = () => {
   };
   return (
     <>
-      <div className="nav-logo-container">
+      <div className="nav-logo-lcontainer">
         <Link to ="/home" className="heading">RMS</Link>
       </div>
-      <div className="container">
+      <div className="lcontainer">
         <div className="card shadow-lg p-3 mb-5 bg-white rounded">
           <div className="side">
             <Link to="/register" className="register">
