@@ -53,7 +53,7 @@ function($router){
 
 
 
-    Route::post(' ',[ProductController::class,'store']);
+    Route::post('product',[ProductController::class,'store']);
     Route::get('product/{product}',[ProductController::class,'show']);
     Route::put('product/{product}',[ProductController::class,'update']);
     Route::delete('product/{product}',[ProductController::class,'destroy']);
