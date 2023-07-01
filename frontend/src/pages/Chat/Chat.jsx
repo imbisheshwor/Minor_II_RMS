@@ -40,7 +40,7 @@ const Chat = ({ message }) => {
                                     <>
 
 
-                                       {msg.type == "customer"}{
+                                       {msg.type === "customer"}{
                                             <div class="flex items-center pr-10">
                                                 <img src={logo} class="rounded-full shadow-xl" width="25" height="25" />
                                                 <span class="flex ml-1  h-auto bg-gray-900 text-gray-200 text-xs font-normal  py-2 px-3 items-end rounded-full" style={{ fontSize: '10px' }}>{msg.message}<span class="text-gray-400 pl-1" style={{ fontSize: '8px' }}>01:25am</span></span>
