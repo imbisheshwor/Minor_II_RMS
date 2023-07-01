@@ -11,9 +11,9 @@ const Menu = () => {
     <>
       <Categories />
       <div class="dropdown">
-  <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu2" data-mdb-toggle="dropdown" aria-expanded="false">
+  {/* <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu2" data-mdb-toggle="dropdown" aria-expanded="false">
     Dropdown
-  </button>
+  </button> */}
   <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
     <li><button class="dropdown-item" type="button">Action</button></li>
     <li><button class="dropdown-item" type="button">Another action</button></li>

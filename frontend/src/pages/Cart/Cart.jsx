@@ -1,5 +1,5 @@
 import React from 'react'
-import Navbar from '../../components/Navbar';
+import QrNavbar from '../../components/QrNavbar'
 
 // import momo from '../../components/image/product/momo1.jpg';
 // import pizza from '../../component/image/product/pizza.jpg';
@@ -10,7 +10,7 @@ import Navbar from '../../components/Navbar';
 const Cart = ({ carts }) => {
     return (
         <div>
-            <Navbar />
+            <QrNavbar />
             <div className="container text-center sm:pb-20 ">
                 <div class="h-screen bg-gray-100 pt-10">
                     <h1 class="mb-10 text-center text-2xl font-bold">Cart Items</h1>

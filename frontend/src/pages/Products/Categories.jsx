@@ -176,7 +176,7 @@ const Categories = () => {
   // }
 
   return (
-    <>
+    <div>
       <Navbar />
       <div className="sidebar border-top border-end bg-white .d-none .d-sm-block .d-md-none">
         <ul className="sidebar-nav">
@@ -244,7 +244,7 @@ const Categories = () => {
         </Box>
       </Drawer>
       <Outlet />
-    </>
+    </div>
   );
 };
 

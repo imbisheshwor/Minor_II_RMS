@@ -5,7 +5,7 @@ import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
 import ReceiptIcon from '@mui/icons-material/Receipt';
 import ChatBubbleOutlineOutlinedIcon from '@mui/icons-material/ChatBubbleOutlineOutlined';
-const Navbar = () => {
+const QrNavbar = () => {
     return (
         <div className='navigation max-w-screen-2xl'>
 
@@ -31,7 +31,7 @@ const Navbar = () => {
                             <Link to={"cart"} className="no-underline text-gray-900 hover:text-orange-600">Cart</Link>
                           </li>
                           <li>
-                            <Link to={"bill"} className="no-underline text-gray-900 hover:text-orange-600">Bills</Link>
+                            <Link to={"/qrmenu/bill"} className="no-underline text-gray-900 hover:text-orange-600">Bills</Link>
                           </li>
                           <li>
                             <Link to={"message"} className="no-underline text-gray-900 hover:text-orange-600">Message</Link>
@@ -49,7 +49,7 @@ const Navbar = () => {
                             <MenuBookIcon/>
                             <span class="text-sm text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-500">Menu</span>
                         </Link>
-                        <Link to='qrmenu/cart' type="button" class="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 dark:hover:bg-gray-800 group">
+                        <Link to='/qrmenu/cart' type="button" class="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 dark:hover:bg-gray-800 group">
                             <AddShoppingCartIcon className='hover:text-blue-600'/>
                             <span class="text-sm text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-500">Cart</span>
                         </Link>
@@ -69,4 +69,4 @@ const Navbar = () => {
     )
 }
 
-export default Navbar
+export default QrNavbar
