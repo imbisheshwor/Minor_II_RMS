@@ -1,6 +1,7 @@
 // import React, { useState } from 'react';
 // import Navbar from ';
-import Navbar from '../../components/Navbar';
+// import QrNavbar from '../../components/Navbar';
+import QrNavbar from '../../components/QrNavbar';
 import http from '../../http';
 import { useState,useEffect } from 'react';
 
@@ -20,8 +21,8 @@ const QrMenu = ({ product }) => {
     let data = 0;
     return (
         <div>
-            <div className="container mx-auto">
-                <Navbar />
+            {/* <div className="container mx-auto"> */}
+                <QrNavbar />
                 <div className="container ext-tcenter sm:pb-20">
                     <div class=" bg-gray-50 pt-10">
                         <h1 class="mb-10 text-center text-2xl font-bold">QR Menu</h1>
@@ -163,7 +164,7 @@ const QrMenu = ({ product }) => {
             </div>
 
 
-        </div>
+        // </div>
     );
 
 

@@ -12,7 +12,7 @@ import DeliveryAdd from './pages/deliveryAdd/DeliveryAdd';
 import UserView from './pages/userView/UserView';
 
 import QrMenu from './pages/QR-Menu/QrMenu';
-import Navbar from './components/Navbar';
+import QrNavbar from './components/QrNavbar';
 import Cart from './pages/Cart/Cart';
 import Bills from "./pages/bills/Bills";
 import Chat from "./pages/Chat/Chat";
@@ -153,24 +153,21 @@ function App() {
 
 
           <Route path="admin">
-
             <Route index element={<Home />} />
-            <Route path="user" element={<User />} />
+            <Route path="/admin/users" element={<User />} />
             <Route path=":userId" element={<UserView />} />
-            <Route path="userAdd" element={<UserAdd />} />
+            <Route path="/admin/userAdd" element={<UserAdd />} />
             <Route path="product" element={<Product />} />
-            <Route path="productAdd" element={<ProductAdd />} />
-            <Route path="delivery" element={<Delivery />} />
-            <Route path="deliveryAdd" element={<DeliveryAdd />} />
-
-
-            
+            <Route path="/admin/productAdd" element={<ProductAdd />} />
+            <Route path="/admin/delivery" element={<Delivery />} />
+            <Route path="/admin/deliveryAdd" element={<DeliveryAdd />} />
           </Route>
           <Route path="qrmenu">
               <Route index element={<QrMenu product={product} />} />
-              <Route path='cart' element={<Cart carts={cart} />} />
-              <Route path='bill' element={<Bills />} />
-              <Route path='qr-message' element={<Chat message={message} />} />
+              <Route path='cart' element={<Cart carts={cart}/>}
+              />
+              <Route path='/qrmenu/bill' element={<Bills />} />
+              <Route path='qr-message' element={<Chat mess  age={message} />} />
             </Route>
 
         </Routes>

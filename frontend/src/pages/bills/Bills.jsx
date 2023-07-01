@@ -1,13 +1,13 @@
 import React from 'react'
-import Navbar from '../../components/Navbar';
+import QrNavbar from '../../components/QrNavbar';
 
 const Bills = () => {
     return (
         <div>
-            <Navbar />
+            < QrNavbar />
             <div className="bills">
                 <div class="bg-white border rounded-lg shadow-lg px-6 py-8 max-w-md mx-auto mt-8 mb-10 pb-20">
-                    <h1 class="font-bold text-2xl my-4  text-blue-600">RMS Restrunt</h1>
+                    <h1 class="font-bold text-2xl my-4  text-blue-600">RMS Restaurant</h1>
                     <hr class="mb-2"/>
                         <div class="flex justify-between mb-6">
                             <h1 class="text-lg font-bold">Invoice</h1>

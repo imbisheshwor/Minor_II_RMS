@@ -66,7 +66,7 @@ const User = () => {
         <div className="homeContainer">
             <Navbar />  
             <div className="users">
-              <div className="container">
+              <div className="ucontainer">
               <TableContainer component={Paper} className="table">
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
@@ -109,7 +109,7 @@ const User = () => {
         </Table>
       </TableContainer>
           <Stack direction="row" spacing={2}>
-          <Link to="/deliveryAdd" style={{ textDecoration: "none" }}>
+          <Link to="/admin/deliveryAdd" style={{ textDecoration: "none" }}>
           <Button className="btn" style={{color:"white"}}>ADD DELIVERY</Button> 
           </Link> 
     </Stack>  

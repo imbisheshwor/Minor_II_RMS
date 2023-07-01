@@ -3,8 +3,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import {faUserTie} from '@fortawesome/free-solid-svg-icons';
 import {faHouse,faUser,faStore,faCreditCard,faTruck,faChartSimple,faBell,faRightToBracket,faGear,faIdCardClip,faRightFromBracket} from '@fortawesome/free-solid-svg-icons';
 import { Link } from "react-router-dom";
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { Container, Row, Col } from 'react-bootstrap';
+// import 'bootstrap/dist/css/bootstrap.min.css';
+// import { Container, Row, Col } from 'react-bootstrap';
 
 
 
@@ -16,30 +16,28 @@ const Sidebar = () => {
   //        fontSize:" 14px"
   //  };
   return (
-    <Container className="asidebar">
+    <Container className="sidebar">
       
-      <Row className="top">
-        <Col>
+      <div className="top">
+
         <Link to="/" style={{ textDecoration: "none" }}>
           <span className="logo">RMS</span>
         </Link>
-        </Col>
-      </Row>
+      </div>
       <hr/>
-      <Row className="center">
+      <div className="center">
      {/* style={styles} */} 
-     <Col xs={12} sm={10}>
         <ul >
           <p className="title">MAIN</p>
-          <Link to="/" style={{ textDecoration: "none" }}>
+          <Link to="/admin" style={{ textDecoration: "none" }}>
           <li>
             <FontAwesomeIcon icon={faHouse} className="icon" />
             <span>Dashboard</span>
           </li>
+
           </Link>
-          
           <p className="title">LISTS</p>
-          <Link to="/user" style={{ textDecoration: "none" }}>
+          <Link to="/admin/users" style={{ textDecoration: "none" }}>
             <li>
               <FontAwesomeIcon icon={faUser}className="icon" />
               <span>Users</span>
@@ -59,7 +57,7 @@ const Sidebar = () => {
           </li>
           </Link>
           
-          <Link to="/delivery" style={{ textDecoration: "none" }}>
+          <Link to="/admin/delivery" style={{ textDecoration: "none" }}>
           <li>
             <FontAwesomeIcon icon={faTruck} className="icon" />
             <span>Delivery</span>
@@ -93,9 +91,8 @@ const Sidebar = () => {
             <span>Logout</span>
           </li>
         </ul>
-        </Col>
-      </Row>
-      </Container>
+        </div>
+      </div>
   );
 };
 
