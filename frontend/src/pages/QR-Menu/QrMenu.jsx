@@ -23,16 +23,16 @@ const QrMenu = ({ product }) => {
         <div>
             {/* <div className="container mx-auto"> */}
                 <QrNavbar />
-                <div className="container ext-tcenter sm:pb-20">
+                <div className="container text-center sm:pb-20">
                     <div class=" bg-gray-50 pt-10">
                         <h1 class="mb-10 text-center text-2xl font-bold">QR Menu</h1>
                         <div class="mx-auto  max-w-screen-xl justify-center  md:flex md:space-x-6 xl:px-0">
-                            <div class="rounded-lg md:w-full  flex flex-wrap pb-12  md:gap-2 md:ml-10">
+                            <div class="rounded-lg md:w-full  flex gap-x-2  flex-wrap pb-12  md:gap-2 md:ml-10">
 
                                 {/* {products['products'].map((prod) => ( */}
 
                                 { product.map((prod) => (
-                                    <div class="justify-between mb-8   w-40 ml-2 md:w-2/5 md:ml-10  rounded-lg bg-white px-2 py-4 shadow-md " key = {prod.id}>
+                                    <div class="justify-between mb-8   w-36  md:w-2/5 md:ml-10  rounded-lg bg-white px-2 py-4 shadow-md " key = {prod.id}>
                                         <div className="image_container h-32 md:h-72">
 
                                         <img src={prod.photo} alt={prod.name} class="w-full rounded-xl object-cover h-32 md:h-72" />

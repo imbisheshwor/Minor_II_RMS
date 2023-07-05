@@ -11,14 +11,14 @@ const QrNavbar = () => {
 
              <div className="top_navigation ">
                 <nav class="bg-white border-gray-200 dark:bg-gray-900">
-                    <div class=" flex flex-wrap items-center justify-between mx-auto p-4">
+                    <div class=" flex   justify-between mx-auto -ml-10 p-4">
                         <Link to="/qrmenu" class="flex items-center no-underline">
                             <img src={logo} class="h-8 mr-3" alt="Flowbite Logo" />
-                            <span class="self-center text-2xl font-semibold whitespace-nowrap  dark:text-white text-orange-700 ">RMS</span>
+                            <span class="self-center text-2xl font-semibold whitespace-nowrap  text-orange-700 ">RMS</span>
                         </Link>
                        
                         <div className="right">
-                            <p className="table-no font-bold text-blue-900 md:hidden">Table: 5</p>
+                            <p className="table-no font-bold text-blue-900 ml-28 md:hidden">Table: 5</p>
                         </div>
                        
 

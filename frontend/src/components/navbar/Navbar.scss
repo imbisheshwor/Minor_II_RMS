@@ -19,7 +19,8 @@
       align-items: center;
       border: 1px solid rgb(194, 191, 191);
       border-radius: 5px;
-      padding: 3px;
+      padding: 4px;
+      width: 13rem;
 
       input {
         border: none;
@@ -34,7 +35,9 @@
         &::placeholder {
           font-size: 12px;
         }
+       
       }
+      
     }
 
     .items {
@@ -48,8 +51,9 @@
         position: relative;
 
         .icon {
-          color: #595959;
-          font-size: 25px;
+          // color: #595959;
+          color: #dacae7;
+          font-size: 25px;  
         }
         .avatar {
           width: 30px;
