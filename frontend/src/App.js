@@ -167,7 +167,7 @@ function App() {
               <Route path='cart' element={<Cart carts={cart}/>}
               />
               <Route path='/qrmenu/bill' element={<Bills />} />
-              <Route path='qr-message' element={<Chat mess  age={message} />} />
+              <Route path='qr-message' element={<Chat message={message} />} />
             </Route>
 
         </Routes>

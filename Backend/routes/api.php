@@ -48,6 +48,7 @@ function($router){
     Route::get('catogory/{catogory}',[CatogoryController::class,'show']);
     Route::put('catogory/{catogory}',[CatogoryController::class,'update']);
     Route::delete('catogory/{catogory}',[CatogoryController::class,'destroy']);
+    
     Route::get('product',[ProductController::class,'index']);
 
 

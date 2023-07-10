@@ -7,7 +7,7 @@ import ReceiptIcon from '@mui/icons-material/Receipt';
 import ChatBubbleOutlineOutlinedIcon from '@mui/icons-material/ChatBubbleOutlineOutlined';
 const QrNavbar = () => {
     return (
-        <div className='navigation max-w-screen-2xl'>
+        <div className='navigation '>
 
              <div className="top_navigation ">
                 <nav class="bg-white border-gray-200 dark:bg-gray-900">
