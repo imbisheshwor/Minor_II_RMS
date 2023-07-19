@@ -14,7 +14,11 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
+
 import { Link } from "react-router-dom";
+import axios from "axios";
+import { useState, useEffect } from "react";
+import http from "../../http";
 
 const User = () => {
   const rows = [
@@ -47,6 +51,21 @@ const User = () => {
       category: "Appitizer",
     },
   ];
+  const [products,setProducts] = useState([]);
+
+  useEffect(()=>{
+    fetchAllProducts();
+  },[]);
+
+const fetchAllProducts = () =>{
+   http.get('http://127.0.0.1:8000/api/product').then(res=>{
+    setProducts(res.data);
+  })
+}
+
+console.log(products);
+
+
 
   return (
     <div className="home">

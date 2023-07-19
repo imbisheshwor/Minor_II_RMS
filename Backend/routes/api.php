@@ -99,6 +99,8 @@ function($router){
     Route::get('activate-delivery-boy/{id}',[DeliveryBoyController::class,'activate']);
     
     Route::get('deactivate-delivery-boy/delete/{id}',[DeliveryBoyController::class,'delete']);
+
+
     
 
 });

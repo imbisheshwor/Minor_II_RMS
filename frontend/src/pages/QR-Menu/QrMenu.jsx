@@ -28,6 +28,7 @@ const QrMenu = ({ product }) => {
                         <h1 class="mb-10 text-center text-2xl font-bold">QR Menu</h1>
                         <div class="mx-auto  max-w-screen-xl justify-center  md:flex md:space-x-6 xl:px-0">
                             <div class="rounded-lg md:w-full  flex gap-x-2  flex-wrap pb-12  md:gap-2 md:ml-10">
+                                
 
                                 {/* {products['products'].map((prod) => ( */}
 

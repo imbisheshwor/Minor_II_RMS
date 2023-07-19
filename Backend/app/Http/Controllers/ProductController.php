@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Validator;
 
 
@@ -12,8 +13,13 @@ class ProductController extends Controller
     
     public function index()
     {
+
+        $products = Product::select('products.*', 'catogories.name as category_name')
+        	->join('catogories', 'catogories.id', '=', 'products.catogory_id')
+        	->get();
+        
         return response()->json([
-            'products' => Product::get(),
+            'products' => $products,
         ]);
     }
 
