@@ -14,4 +14,8 @@ class Product extends Model
         'catogory_id',
         'photo',
     ]; 
+
+    public function getPhotoAttribute($value){
+        return asset('Products/'.$value);
+    }
 }

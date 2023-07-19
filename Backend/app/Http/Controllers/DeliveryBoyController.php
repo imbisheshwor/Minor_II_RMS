@@ -75,7 +75,7 @@ class DeliveryBoyController extends Controller
                     'salary' => $request->salary,
                     'phone' => $request->phone,
                     'photo' => $filename,
-                   
+                    
                 ]);
             }
             DB::commit();

@@ -23,7 +23,7 @@ const QrNavbar = () => {
                        
 
                         <div className=" w-full hidden md:block text-gray-500 mr-10">
-                        <ul className='font-semibold md:flex md:gap-x-10 float-right decoration-current text-2xl -mt-10 p-4  rounded-lg  md:flex-row  md:border-0 '>
+                        <ul className='font-semibold md:flex md:gap-x-10 float-right decoration-current text-2xl ml-96 p-4  rounded-lg  md:flex-row  md:border-0 '>
                           <li>
                             <Link to={"/qrmenu"} className='no-underline text-gray-900  hover:text-orange-600'>Menu</Link>
                           </li>

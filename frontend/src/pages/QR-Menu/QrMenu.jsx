@@ -19,6 +19,7 @@ const QrMenu = ({ product }) => {
     // }
     
     let data = 0;
+    let newData ;
     return (
         <div>
             {/* <div className="container mx-auto"> */}
@@ -30,7 +31,6 @@ const QrMenu = ({ product }) => {
                             <div class="rounded-lg md:w-full  flex gap-x-2  flex-wrap pb-12  md:gap-2 md:ml-10">
                                 
 
-                                {/* {products['products'].map((prod) => ( */}
 
                                 { product.map((prod) => (
                                     <div class="justify-between mb-8   w-36  md:w-2/5 md:ml-10  rounded-lg bg-white px-2 py-4 shadow-md " key = {prod.id}>
@@ -44,10 +44,11 @@ const QrMenu = ({ product }) => {
                                                 <p class="mt-1 text-base font-bold text-gray-700">Rs.{prod.sale_price}</p>
                                             </div>
                                             <div class="mt-2  md:flex  justify-between sm:space-y-6 sm:mt-0 sm:block sm:space-x-6 ">
-                                                <div class="flex  md:ml-0 md:mt-5 ml-4 items-center border-gray-100">
-                                                    <span class="cursor-pointer rounded-l bg-gray-100 py-1 px-3.5 duration-100 hover:bg-blue-500 hover:text-blue-50"> - </span>
-                                                    <input class="h-8 w-8 md:w-12 border bg-white text-center text-xs outline-none" type="number" value="5" min="1" />
-                                                    <span class="cursor-pointer rounded-r bg-gray-100 py-1 px-3 duration-100 hover:bg-blue-500 hover:text-blue-50"> + </span>
+                                                <div class="flex  md:ml-0 md:gap-x-2 md:mt-5 ml-4 items-center border-gray-100">
+                                                    <button class="cursor-pointer rounded-l bg-gray-100 py-1 px-3.5 duration-100 hover:bg-blue-500 hover:text-blue-50" onClick={decrement} > - </button>
+                                                    {/* <input class="h-8 w-4 md:w-12 border bg-white text-center text-xs outline-none" type="number" value="1" min="1" id="counting"/> */}
+                                                    <input type='number' className='h-8 w-4 md:w-12 border bg-white text-center text-xs outline-none' id='counting' value={1}/>
+                                                    <button class="cursor-pointer rounded-r bg-gray-100 py-1 px-3 duration-100 hover:bg-blue-500 hover:text-blue-50" onClick={increment} > + </button>
                                                 </div>
                                                 <div class="flex items-center space-x-4">
                                                     <button class="px-2 py-0 mt-3 md:mt-2 ml-4  transition ease-in duration-200 uppercase rounded-xl bg-gray-800 text-white  border-2 border-gray-900 focus:outline-none">Add to cart</button>
@@ -60,102 +61,6 @@ const QrMenu = ({ product }) => {
 
 
 
-                                {/* <div class="justify-between mb-6 rounded-lg bg-white p-6 shadow-md sm:flex sm:justify-start">
-                                <img src={momo} alt="product-image" class="w-full rounded-3xl sm:w-40" />
-                                <div class="sm:ml-4 sm:flex sm:w-full sm:justify-between">
-                                    <div class="mt-5 sm:mt-0">
-                                        <h2 class="text-xl font-bold text-gray-900">Momo</h2>
-                                        <p class="mt-1 text-lg font-bold text-gray-700">Rs.220</p>
-                                    </div>
-                                    <div class="mt-4 flex justify-between sm:space-y-6 sm:mt-0 sm:block sm:space-x-6">
-                                        <div class="flex items-center border-gray-100">
-                                            <span class="cursor-pointer rounded-l bg-gray-100 py-1 px-3.5 duration-100 hover:bg-blue-500 hover:text-blue-50"> - </span>
-                                            <input class="h-8 w-8 border bg-white text-center text-xs outline-none" type="number" value="5" min="1" />
-                                            <span class="cursor-pointer rounded-r bg-gray-100 py-1 px-3 duration-100 hover:bg-blue-500 hover:text-blue-50"> + </span>
-                                        </div>
-                                        <div class="flex items-center space-x-4">
-                                        <button class="px-6 py-2 transition ease-in duration-200 uppercase rounded-full bg-gray-800 text-white  border-2 border-gray-900 focus:outline-none">Add to cart</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> */}
-
-                                {/* <div class="justify-between mb-6 rounded-lg bg-white p-6 shadow-md sm:flex sm:justify-start">
-                                <img src={momo} alt="product-image" class="w-full rounded-3xl sm:w-40" />
-                                <div class="sm:ml-4 sm:flex sm:w-full sm:justify-between">
-                                    <div class="mt-5 sm:mt-0">
-                                        <h2 class="text-xl font-bold text-gray-900">Momo</h2>
-                                        <p class="mt-1 text-lg font-bold text-gray-700">Rs.220</p>
-                                    </div>
-                                    <div class="mt-4 flex justify-between sm:space-y-6 sm:mt-0 sm:block sm:space-x-6">
-                                        <div class="flex items-center border-gray-100">
-                                            <span class="cursor-pointer rounded-l bg-gray-100 py-1 px-3.5 duration-100 hover:bg-blue-500 hover:text-blue-50"> - </span>
-                                            <input class="h-8 w-8 border bg-white text-center text-xs outline-none" type="number" value="5" min="1" />
-                                            <span class="cursor-pointer rounded-r bg-gray-100 py-1 px-3 duration-100 hover:bg-blue-500 hover:text-blue-50"> + </span>
-                                        </div>
-                                        <div class="flex items-center space-x-4">
-                                        <button class="px-6 py-2 transition ease-in duration-200 uppercase rounded-full bg-gray-800 text-white  border-2 border-gray-900 focus:outline-none">Add to cart</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="justify-between mb-6 rounded-lg bg-white p-6 shadow-md sm:flex sm:justify-start">
-                                <img src={momo} alt="product-image" class="w-full rounded-3xl sm:w-40" />
-                                <div class="sm:ml-4 sm:flex sm:w-full sm:justify-between">
-                                    <div class="mt-5 sm:mt-0">
-                                        <h2 class="text-xl font-bold text-gray-900">Momo</h2>
-                                        <p class="mt-1 text-lg font-bold text-gray-700">Rs.220</p>
-                                    </div>
-                                    <div class="mt-4 flex justify-between sm:space-y-6 sm:mt-0 sm:block sm:space-x-6">
-                                        <div class="flex items-center border-gray-100">
-                                            <span class="cursor-pointer rounded-l bg-gray-100 py-1 px-3.5 duration-100 hover:bg-blue-500 hover:text-blue-50"> - </span>
-                                            <input class="h-8 w-8 border bg-white text-center text-xs outline-none" type="number" value="5" min="1" />
-                                            <span class="cursor-pointer rounded-r bg-gray-100 py-1 px-3 duration-100 hover:bg-blue-500 hover:text-blue-50"> + </span>
-                                        </div>
-                                        <div class="flex items-center space-x-4">
-                                        <button class="px-6 py-2 transition ease-in duration-200 uppercase rounded-full bg-gray-800 text-white  border-2 border-gray-900 focus:outline-none">Add to cart</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="justify-between mb-6 rounded-lg bg-white p-6 shadow-md sm:flex sm:justify-start">
-                                <img src={momo} alt="product-image" class="w-full rounded-3xl sm:w-40" />
-                                <div class="sm:ml-4 sm:flex sm:w-full sm:justify-between">
-                                    <div class="mt-5 sm:mt-0">
-                                        <h2 class="text-xl font-bold text-gray-900">Momo</h2>
-                                        <p class="mt-1 text-lg font-bold text-gray-700">Rs.220</p>
-                                    </div>
-                                    <div class="mt-4 flex justify-between sm:space-y-6 sm:mt-0 sm:block sm:space-x-6">
-                                        <div class="flex items-center border-gray-100">
-                                            <span class="cursor-pointer rounded-l bg-gray-100 py-1 px-3.5 duration-100 hover:bg-blue-500 hover:text-blue-50"> - </span>
-                                            <input class="h-8 w-8 border bg-white text-center text-xs outline-none" type="number" value="5" min="1" />
-                                            <span class="cursor-pointer rounded-r bg-gray-100 py-1 px-3 duration-100 hover:bg-blue-500 hover:text-blue-50"> + </span>
-                                        </div>
-                                        <div class="flex items-center space-x-4">
-                                        <button class="px-6 py-2 transition ease-in duration-200 uppercase rounded-full bg-gray-800 text-white  border-2 border-gray-900 focus:outline-none">Add to cart</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="justify-between mb-6 rounded-lg bg-white p-6 shadow-md sm:flex sm:justify-start">
-                                <img src={momo} alt="product-image" class="w-full rounded-3xl sm:w-40" />
-                                <div class="sm:ml-4 sm:flex sm:w-full sm:justify-between">
-                                    <div class="mt-5 sm:mt-0">
-                                        <h2 class="text-xl font-bold text-gray-900">Momo</h2>
-                                        <p class="mt-1 text-lg font-bold text-gray-700">Rs.220</p>
-                                    </div>
-                                    <div class="mt-4 flex justify-between sm:space-y-6 sm:mt-0 sm:block sm:space-x-6">
-                                        <div class="flex items-center border-gray-100">
-                                            <span class="cursor-pointer rounded-l bg-gray-100 py-1 px-3.5 duration-100 hover:bg-blue-500 hover:text-blue-50"> - </span>
-                                            <input class="h-8 w-8 border bg-white text-center text-xs outline-none" type="number" value="5" min="1" />
-                                            <span class="cursor-pointer rounded-r bg-gray-100 py-1 px-3 duration-100 hover:bg-blue-500 hover:text-blue-50"> + </span>
-                                        </div>
-                                        <div class="flex items-center space-x-4">
-                                        <button class="px-6 py-2 transition ease-in duration-200 uppercase rounded-full bg-gray-800 text-white  border-2 border-gray-900 focus:outline-none">Add to cart</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> */}
                             </div>
 
 
@@ -165,24 +70,22 @@ const QrMenu = ({ product }) => {
             </div>
 
 
-        // </div>
     );
 
 
     function increment() {
 
         data = parseInt(document.getElementById("counting").value);
-        data = data + 1;
-        console.log(data);
-        document.getElementById("counting").value = data;
-
+        newData = data + 1;
+        document.getElementById("counting").value = newData;
     }
     function decrement() {
         data = parseInt(document.getElementById("counting").value);
         if (data > 0) {
-            data = data - 1;
-            document.getElementById("counting").value = data;
+            newData = data - 1;
         }
+        document.getElementById("counting").value = newData;
+       
     }
 }
 

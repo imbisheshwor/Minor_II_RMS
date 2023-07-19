@@ -1,33 +1,23 @@
 import React, { useState, useEffect } from 'react';
-
+import http from '../../../http';
 import { Link } from "react-router-dom";
 import Categories from "../Categories";
 import { menuData } from "../../../Data/data";
 
-import axios from 'axios';
-
 
 const Menu = () => {
   const [data, setData] = useState([])
-  const [menuDataItem] = useState(menuData)
-
-
-
-
-
-
+  // const [menuDataItem] = useState(menuData)
 
   const fetchInfo = async () => {
-    return await  axios.get('http://127.0.0.1:8000/api/product')
+    return await  http.get('/product')
       .then(({data}) => setData(data?.products));
   }
+  console.log(data);
 
   useEffect(() => {
     fetchInfo();
   }, [])
-
-  console.log(data);
-
 
   return (
     <>
@@ -51,7 +41,7 @@ const Menu = () => {
           {data.map((props) => (
 
             <div className="product" key={props.id}>
-              <img src={props.menuimageurl} alt="" />
+              <img src={props.photo} alt="" />
               <div className="product-info">
                 <Link
                   to={`/productdetails/${props.id}`}

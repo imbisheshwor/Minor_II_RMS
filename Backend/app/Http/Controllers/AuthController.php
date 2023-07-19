@@ -7,7 +7,7 @@ use Validator;
 
 class AuthController extends Controller
 {
-    /**
+/**
      * Create a new AuthController instance.
      *
      * @return void
@@ -95,6 +95,12 @@ class AuthController extends Controller
             'token_type' => 'bearer',
             'expires_in' => auth()->factory()->getTTL() * 60,
             'user' => auth()->user()
+        ]);
+    }
+    function userList() {
+       
+        return response()->json([
+            'users' => User::all(),
         ]);
     }
 }

@@ -1,11 +1,13 @@
-import axios from "axios"
 
-// import axois from 'axois';
-
-
+import axios from 'axios';
+var csrf_token = '<?php echo csrf_token(); ?>';
 export default axios.create({
-    baseUrl:"http://127.0.0.1:8000/api",
-    headers:{
-        "content-type" : "application/json",
-    }
-})
+	baseURL: 'http://127.0.0.1:8000/api',
+	
+	headers: {
+		'Accept': 'application/json',
+		'Content-Type': 'application/json',
+		
+		
+	},
+});
