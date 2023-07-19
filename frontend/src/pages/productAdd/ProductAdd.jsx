@@ -25,12 +25,13 @@ const ProductAdd = () => {
     // http.post('/product',inputs).then((res) =>{
     //   console.log(res);
     // })
-    try {
-      const res = await http.post('/product', inputs)
-      console.log(res.data)
-    } catch (e) {
-      alert(e)
-    }
+    // try {
+    //   const res = await http.post('/product', inputs)
+    //   console.log(res.data)
+    // } catch (e) {
+    //   alert(e)
+    // }
+    console.log(inputs);
     
   }
 
