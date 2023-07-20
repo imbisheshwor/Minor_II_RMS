@@ -46,7 +46,7 @@ const ProductAdd = () => {
           'Content-Type': 'application/json',
           'X-CSRF-TOKEN': csrfToken,
       },
-      body: JSON.stringify({ data: 'your_data_here' }),
+      body: JSON.stringify(  inputs ),
   };
   
   fetch('http://127.0.0.1:8000/api/product', requestOptions)

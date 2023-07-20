@@ -94,6 +94,7 @@ const [data, setData] = useState([])
                   <TableRow>
                     <TableCell className="tableCell">ID</TableCell>
                     <TableCell className="tableCell">Product</TableCell>
+                    <TableCell className="tableCell">Name </TableCell>
                     <TableCell className="tableCell">Price</TableCell>
                     <TableCell className="tableCell">Category</TableCell>
                     <TableCell className="tableCell">Action</TableCell>
@@ -109,6 +110,7 @@ const [data, setData] = useState([])
                           {row.product}
                         </div>
                       </TableCell>
+                      <TableCell className="tableCell">{row.name}</TableCell>
                       <TableCell className="tableCell">{row.sale_price}</TableCell>
                       <TableCell className="tableCell">
                         {row.category_name}

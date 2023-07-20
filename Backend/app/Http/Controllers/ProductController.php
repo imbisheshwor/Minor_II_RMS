@@ -26,12 +26,40 @@ class ProductController extends Controller
    
     public function store(Request $request)
     {
+        // $file = $request->photo;
+        // dd($file);
+        // $filename = "null";
+        // if($file){
+        // $filename =$file->getClientOriginalName().'product.'.$file->getClientOriginalExtension();
+        // $request->photo->move('Products',$filename);
+        // }
+        $product = Product::create([
+            'name' => $request->name,
+            'sale_price' => $request->sale_price,
+            'catogory_id' => $request->catogory_id,
+            'photo' => "test",
+           
+        ]);
+
+        if($product){
+            return response()->json([
+                'message'=> 'product created successfully!!',
+                'status' => 200,
+                'data' => $product,
+            ]);
+        } else {
+            return response()->json([
+                'message'=> "fails on created Product",
+                'message' => 500,
+                'data' => $product,
+            ],500);
+        }
+
         $validator = Validator::make($request->all(),[
             'name' => 'required',
             'sale_price'=> 'required',
             'catogory_id' => 'required',
-            'photo' => 'required',
-            'photo.*' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            
         ]);
 
         if($validator->fails()){
