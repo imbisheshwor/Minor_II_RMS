@@ -5,8 +5,13 @@ import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
 import ReceiptIcon from '@mui/icons-material/Receipt';
 import ChatBubbleOutlineOutlinedIcon from '@mui/icons-material/ChatBubbleOutlineOutlined';
+// import '../flowbite.css';
+// import '../tailwind.css';
+
+
 const QrNavbar = () => {
     return (
+        <>
         <div className='navigation '>
 
              <div className="top_navigation ">
@@ -65,6 +70,7 @@ const QrNavbar = () => {
                 </div>
             </div>
         </div>
+        </>
         
     )
 }

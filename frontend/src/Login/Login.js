@@ -4,10 +4,12 @@ import "../Login/Login.css";
 import { Link } from "react-router-dom";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import VisibilityIcon from "@mui/icons-material/Visibility";
+import { useState,useEffect } from "react";
 
 
 const Login = () => {
   const { useState } = React;
+  const [email, setEfmail] = useState();
 
   const [inputs, setinputs] = useState({
     email: "",

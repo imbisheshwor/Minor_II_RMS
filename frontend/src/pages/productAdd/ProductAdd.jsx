@@ -9,6 +9,11 @@ import { useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import http from "../../http";
 
+const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
+
+
+
 
 const ProductAdd = () => {
   const [inputs, setInputs] = useState({});
@@ -27,11 +32,31 @@ const ProductAdd = () => {
     // })
     // try {
     //   const res = await http.post('/product', inputs)
-    //   console.log(res.data)
+    //   // console.log(res.data)
     // } catch (e) {
     //   alert(e)
     // }
-    console.log(inputs);
+    // console.log(inputs);
+
+    // Now, you can make your API requests using Axios
+
+    const requestOptions = {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json',
+          'X-CSRF-TOKEN': csrfToken,
+      },
+      body: JSON.stringify({ data: 'your_data_here' }),
+  };
+  
+  fetch('http://127.0.0.1:8000/api/product', requestOptions)
+      .then(response => response.json())
+      .then(data => {
+         alert('done');
+      })
+      .catch(error => {
+          alert('error');
+      });
     
   }
 

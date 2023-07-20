@@ -51,19 +51,33 @@ const User = () => {
       category: "Appitizer",
     },
   ];
-  const [products,setProducts] = useState([]);
+//   const [products,setProducts] = useState([]);
 
-  useEffect(()=>{
-    fetchAllProducts();
-  },[]);
+//   useEffect(()=>{
+//     fetchAllProducts();
+//   },[]);
 
-const fetchAllProducts = () =>{
-   http.get('http://127.0.0.1:8000/api/product').then(res=>{
-    setProducts(res.data);
-  })
-}
+// const fetchAllProducts = () =>{
+//    http.get('http://127.0.0.1:8000/api/product').then(res=>{
+//     setProducts(res.data);
+//   })
+// }
 
-console.log(products);
+// console.log(products);
+
+const [data, setData] = useState([])
+  // const [menuDataItem] = useState(menuData)
+
+  const fetchInfo = async () => {
+    return await  http.get('/product')
+      .then(({data}) => setData(data?.products));
+  }
+
+  useEffect(() => {
+    fetchInfo();
+  }, [])
+
+ 
 
 
 
@@ -86,20 +100,20 @@ console.log(products);
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                  {rows.map((row) => (
+                  {data.map((row) => (
                     <TableRow key={row.id}>
                       <TableCell className="tableCell">{row.id}</TableCell>
                       <TableCell className="tableCell">
                         <div className="cellWrapper">
-                          <img src={row.img} alt="" className="image" />
+                          <img src={row.photo} alt="" className="image" />
                           {row.product}
                         </div>
                       </TableCell>
-                      <TableCell className="tableCell">{row.price}</TableCell>
+                      <TableCell className="tableCell">{row.sale_price}</TableCell>
                       <TableCell className="tableCell">
-                        {row.category}
+                        {row.category_name}
                       </TableCell>
-                      <TableCell className="tableCell d-flex" >
+                      <TableCell className="tableCell d-flex gap-x-3" >
                         <div className="edit">
                           <Link to="/" style={{ textDecoration: "none" }}>
                             <FontAwesomeIcon
@@ -109,12 +123,13 @@ console.log(products);
                           </Link>
                         </div>
 
-                        <div className="delete">
+                        <div className="delete border-dotted border-2 p-2 border-gray-200"> 
                           <Link to="/" style={{ textDecoration: "none" }}>
-                            <FontAwesomeIcon
+                            {/* <FontAwesomeIcon
                               icon={faTrash}
                               style={{ color: "red", padding: "12" }}
-                            ></FontAwesomeIcon>
+                            ></FontAwesomeIcon> */}
+                            {row.is_active == true ? <div className="text-red-600">Deactivate</div>: <div className="text-green-300">Activate</div> }
                           </Link>
                         </div>
                       </TableCell>

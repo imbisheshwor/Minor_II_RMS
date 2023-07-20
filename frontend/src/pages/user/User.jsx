@@ -16,9 +16,26 @@ import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';  
 import Stack from '@mui/material/Stack';  
 import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import http from "../../http";
 
 
 const User = () => {
+  const [data, setData] = useState([])
+  // const [menuDataItem] = useState(menuData)
+
+  const fetchInfo = async () => {
+    return await  http.get('/auth/users')
+      .then(({data}) => setData(data?.products));
+  }
+
+  useEffect(() => {
+    fetchInfo();
+  }, [])
+  
+  console.log(data);
+
+
     const rows = [
         {
             id:1,

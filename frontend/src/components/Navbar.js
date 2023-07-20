@@ -58,7 +58,7 @@ const Navbar = () => {
       </div>
       
 
-      <div className="navbar-links-container">
+      <div className="navbar-links-container flex">
         <Link to="/home">Home</Link>
         <Link to="/profile">About</Link>
         <Link to="/gallery">Gallery</Link>
@@ -70,7 +70,7 @@ const Navbar = () => {
         <Link to="/cart">
           <BsCart2 className="navbar-cart-icon" />
         </Link>
-        <Link to="/login" className="primary-button">Login</Link>
+        <Link to="/login" className="primary-button -mt-5">Login</Link>
       </div>
 
       <div className="navbar-menu-container">
