@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import {faUserTie} from '@fortawesome/free-solid-svg-icons';
 import {faHouse,faUser,faStore,faCreditCard,faTruck,faChartSimple,faBell,faRightToBracket,faGear,faIdCardClip,faRightFromBracket} from '@fortawesome/free-solid-svg-icons';
 import { Link } from "react-router-dom";
+import {AuthUser,logout} from "../../AuthUser";
 // import 'bootstrap/dist/css/bootstrap.min.css';
 // import { Container, Row, Col } from 'react-bootstrap';
 
@@ -10,6 +11,13 @@ import { Link } from "react-router-dom";
 
 
 const Sidebar = () => {
+  const {token} = AuthUser();
+
+  const logOutUser = () =>{
+    if(token != undefined){
+      logout();
+    }
+  }
 
   //     const styles={
   //        backgroundColor:"black",
@@ -88,7 +96,7 @@ const Sidebar = () => {
           </li>
           <li>
             <FontAwesomeIcon icon={faRightFromBracket}  className="icon" />
-            <span>Logout</span>
+            <span role="button" onClick={logOutUser}>Logout</span>
           </li>
         </ul>
         </div>
