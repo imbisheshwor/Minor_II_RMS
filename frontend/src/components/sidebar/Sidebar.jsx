@@ -47,7 +47,7 @@ const Sidebar = () => {
               <span>Products</span>
             </li>
           </Link>
-          <Link to="/order" style={{ textDecoration: "none" }}>
+          <Link to="/admin/order" style={{ textDecoration: "none" }}>
           <li>
             <FontAwesomeIcon icon={faCreditCard}className="icon" />
             <span>Orders</span>
@@ -61,10 +61,13 @@ const Sidebar = () => {
           </li>
           </Link>
           <p className="title">QR-Menu</p>
+          <Link to="orders">
           <li>
             <FontAwesomeIcon icon={faCreditCard}className="icon" />
             <span>Orders</span>
           </li>
+          </Link>
+          
           <li>
             <FontAwesomeIcon icon={faChartSimple} className="icon" />
             <span>Stats</span>

@@ -10,25 +10,37 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import http from "../../http";
+import AuthUser from "../../AuthUser";
 import { useState, useEffect } from "react";
 
 // import HomeIcon from "@mui/icons-material/Home";
 
 const Categories = () => {
+  const { user, http } = AuthUser();
 
-  const [data, setData] = useState([])
-
-  const fetchInfo = async () => {
-    return await http.get('/catogory')
-      .then(({ data }) => setData(data?.catogories));
-  }
+  const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetchInfo();
-  }, [])
+    fetchProductDetail();
+  }, []);
 
-  console.log(data);
+  const fetchProductDetail = () => {
+    http.get("/catogory").then(({ data }) => setData(data?.catogories));
+  };
+
+
+  // const [data, setData] = useState([])
+
+  // const fetchInfo = async () => {
+  //   return await http.get('/catogory')
+  //     .then(({ data }) => setData(data?.catogories));
+  // }
+
+  // useEffect(() => {
+  //   fetchInfo();
+  // }, [])
+
+  // console.log(data);
 
 
   const [openMenu, setOpenMenu] = useState(false);

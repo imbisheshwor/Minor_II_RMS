@@ -107,6 +107,9 @@ import AuthUser from './AuthUser';
 import { useNavigate } from 'react-router-dom';
 import { alertTitleClasses } from '@mui/material';
 import RouteGuard from './RouteGuard';
+import List from './components/table/Table';
+import Orders from './components/Orders/Order';
+
 
 
 
@@ -170,6 +173,7 @@ function App() {
             <Route path=":userId" element={<UserView />} />
             <Route path="/admin/userAdd" element={<UserAdd />} />
             <Route path="product" element={<Product />} />
+            <Route path="/admin/orders" element={<Orders />} />
             <Route path="/admin/productAdd" element={<ProductAdd />} />
             <Route path="/admin/delivery" element={<Delivery />} />
             <Route path="/admin/deliveryAdd" element={<DeliveryAdd />} />
