@@ -12,24 +12,12 @@ const About = () => {
           <img src={AboutBackgroundImage} alt="" />
         </div>
         <div className="about-section-text-container">
-          <h1 className="primary-heading">Online Food Delivery</h1>
+          <h1 className="primary-heading"style={{color:"orange"}}>Online Food Delivery</h1>
           <p className="primary-text d-flex justify-content-start">
-            Lorem ipsum dolor sit amet consectetur. Non tincidunt magna non et
-            elit. Dolor turpis molestie dui magnis facilisis at fringilla quam.
-            Lorem ipsum dolor sit amet consectetur.
-          </p>
-          <p className="primary-text">
-            Non tincidunt magna non et elit. Dolor turpis molestie dui magnis
-            facilisis at fringilla quam.Non tincidunt magna non et elit. Dolor
-            turpis molestie dui magnis facilisis at.
+          Juggling a busy work schedule, household chores, or other commitments? Online food delivery is the ultimate time-saving solution. Skip the grocery store, meal prep, and cooking; let the professionals take care of it. Your delicious meal will be prepared and delivered promptly, allowing you to reclaim precious time to focus on what matters most to you.
           </p>
         </div>
       </div>
-
-   
-        
-          
-      
 
       <Team />
     </div>

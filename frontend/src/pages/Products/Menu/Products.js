@@ -2,8 +2,10 @@ import React  from "react";
 
 import { FiArrowRight } from "react-icons/fi";
 import { Link } from "react-router-dom";
-
-
+import panner from "../../../Asset/panner.jpg";
+import noodles from "../../../Asset/noodles.jpg";
+import food from "../../../Asset/food.jpeg";
+import pizza from "../../../Asset/pizza.jpg";
 
 const Products = () => {
   // const [showNotification, setShowNotification] = useState(false);
@@ -20,13 +22,13 @@ const Products = () => {
 
       <div class="home-products">
         <div class="product">
-          <img src=""  alt=""/>
+          <img src={panner}  alt=""/>
 
           <div class="product-info">
             <Link to="/productdetails" className="product-title">
-              Food
+             Shrimp Fried Rice
             </Link>
-            <p class="product-price">129</p>
+            <p class="product-price">160</p>
             <Link
               to="/cart"
               className="primary-button"
@@ -41,13 +43,13 @@ const Products = () => {
         </div>
 
         <div class="product">
-        <img src=""  alt=""/>
+        <img src={food}  alt=""/>
 
           <div class="product-info">
             <Link to="/productdetails" className="product-title">
-              Food
+              Spring Roll
             </Link>
-            <p class="product-price">129</p>
+            <p class="product-price">150</p>
             <Link
               to="/cart"
               className="primary-button"
@@ -62,13 +64,13 @@ const Products = () => {
         </div>
 
         <div class="product">
-        <img src=""  alt=""/>
+        <img src={noodles}  alt=""/>
 
           <div class="product-info">
             <Link to="/productdetails" className="product-title">
-              Food
+              Oster
             </Link>
-            <p class="product-price">129</p>
+            <p class="product-price">120</p>
             <Link
               to="/cart"
               className="primary-button"
@@ -83,13 +85,13 @@ const Products = () => {
         </div>
 
         <div class="product">
-        <img src=""  alt=""/>
+        <img src={pizza}  alt=""/>
 
           <div class="product-info">
             <Link to="/productdetails" className="product-title">
-              Food
+              Pizza
             </Link>
-            <p class="product-price">129</p>
+            <p class="product-price">220</p>
             <Link
               to="/cart"
               className="primary-button"

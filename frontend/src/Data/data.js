@@ -1,5 +1,7 @@
 import Momo from "../Asset/ProductImg/Momo.jpg";
-
+import panner from "../Asset/panner.jpg";
+import noodles from "../Asset/noodles.jpg";
+import pizza from "../Asset/pizza.jpg";
 
 export const responsive = {
   superLargeDesktop: {
@@ -29,64 +31,64 @@ export const responsive = {
 export const productData = [
   {
     id: 1,
-    imageurl:"",
-    name: "Food",
-    price: "199",
+    imageurl:Momo,
+    name: "momo",
+    price: "130",
     
   },
   {
     id: 2,
-    imageurl:"",
-    name: "Breakfast",
-    price: "221",
+    imageurl: panner,
+    name: "Shrimp Fried Rice",
+    price: "160",
     
   },
   {
     id: 3,
-    imageurl:"",
-    name: "Lunch",
-    price: "199",
+    imageurl:noodles,
+    name: "Oster",
+    price: "120",
    
   },
   {
     id: 4,
-    imageurl:"",
-    name: "Dinner",
-    price: "114",
+    imageurl:pizza,
+    name: "pizza",
+    price: "220",
   },
   {
     id: 5,
-    imageurl:"",
-    name: "Snack",
-    price: "138",
+    imageurl:Momo,
+    name: "momo",
+    price: "130",
   
   },
   {
     id: 6,
-    imageurl:"",
-    name: "Drinks",
-    price: "138",
+    imageurl:panner,
+    name: "Shrimp Fried Rice",
+    price: "160",
   
   },
   {
     id: 7,
-    imageurl:"",
-    name: "Coffee",
-    price: "138",
+    imageurl:noodles,
+    name: "Oster",
+    price: "120",
   
   },
   {
     id: 8,
-    imageurl:"",
-    name: "Breakfast",
-    price: "138",
+    imageurl:pizza,
+    name: "pizza",
+    price: 220,
   
   },
   {
     id: 9,
-    imageurl:"",
-    name: "Food",
-    price: "138",  
+    imageurl:Momo,
+    name: "momo",
+    price: "130",  
   },
 
 ];

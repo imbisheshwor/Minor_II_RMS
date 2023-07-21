@@ -5,8 +5,8 @@ export default function Product(props) {
     <div className="products-page-wrapper">
       <div class="home-products">
         <div class="product">
-          <img src="" alt="" />
-          {/* <img src={props.url} alt="product image" /> */}
+          {/* <img src="" alt="" /> */}
+          <img src={props.url} alt="product image" />
           <div className="product-info">
             <h4 className="product-title">{props.name}</h4>
             <p className="product-price">{props.price}</p>

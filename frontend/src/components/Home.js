@@ -39,12 +39,9 @@ const Home = () => {
       <div className="home-banner-container">
      
         <div className="home-text-section">
-          <h1 className="primary-heading">Food</h1>
-          <p className="primary-text">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione,
-            autem nulla illo repellendus ipsam eligendi, sapiente eaque enim
-            aut, velit iste aliquam. Architecto nobis voluptates fugiat fuga
-            commodi inventore! Facere!
+          <h1 className="primary-heading" style={{fontSize:" 40px"}}>FEELING HUNGRY ?</h1>
+          <p className="primary-text"style={{fontSize:"30px", color:"orange"}}>
+          DON’T STARVE, JUST ORDER
           </p>
           <Link to ="/menu" className="secondary-button">
             Order Now <FiArrowRight />{" "}
@@ -97,14 +94,9 @@ const Home = () => {
           <img src={AboutBackgroundImage} alt="" />
         </div>
         <div className="about-section-text-container">
-          <h1 className="primary-heading">Online Food Delivery</h1>
+          <h1 className="primary-heading"style={{color: "orange"}}>Online Food Delivery</h1>
           <p className="primary-text">
-            Lorem ipsum dolor sit amet consectetur. Non tincidunt magna non et
-            elit. Dolor turpis molestie dui magnis facilisis at fringilla quam.
-          </p>
-          <p className="primary-text">
-            Non tincidunt magna non et elit. Dolor turpis molestie dui magnis
-            facilisis at fringilla quam.
+          Juggling a busy work schedule, household chores, or other commitments? Online food delivery is the ultimate time-saving solution. Skip the grocery store, meal prep, and cooking; let the professionals take care of it. Your delicious meal will be prepared and delivered promptly, allowing you to reclaim precious time to focus on what matters most to you.
           </p>
           <div className="about-buttons-container">
             <Link to ="/about" className="secondary-button">Learn More</Link>

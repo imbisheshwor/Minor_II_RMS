@@ -1,6 +1,8 @@
 import React from "react";
 
 import AboutBackgroundImage from "../Asset/about-background-image.png";
+
+
 // import { BsFillPlayCircleFill } from "react-icons/bs";
 
 const Feature = () => {

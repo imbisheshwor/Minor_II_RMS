@@ -11,13 +11,13 @@ import {AuthUser,logout} from "../../AuthUser";
 
 
 const Sidebar = () => {
-  const {token} = AuthUser();
+  // const {token} = AuthUser();
 
-  const logOutUser = () =>{
-    if(token != undefined){
-      logout();
-    }
-  }
+  // const logOutUser = () =>{
+  //   if(token != undefined){
+  //     logout();
+  //   }
+  // }
 
   //     const styles={
   //        backgroundColor:"black",
@@ -96,7 +96,9 @@ const Sidebar = () => {
           </li>
           <li>
             <FontAwesomeIcon icon={faRightFromBracket}  className="icon" />
-            <span role="button" onClick={logOutUser}>Logout</span>
+            {/* <span role="button" onClick={logOutUser}>Logout</span> */}
+            <span role="button">Logout</span>
+
           </li>
         </ul>
         </div>
