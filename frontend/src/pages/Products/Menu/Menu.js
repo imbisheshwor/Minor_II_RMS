@@ -8,6 +8,8 @@ import AuthUser from "../../../AuthUser";
 const Menu = () => {
   const { user, http } = AuthUser();
   const [data, setData] = useState([]);
+  const [cart, setCart] = useState([]);
+  const [inputs, setInputs] = useState([]);
 
   useEffect(() => {
     fetchProductDetail();
@@ -17,8 +19,20 @@ const Menu = () => {
     http.get("/product").then(({ data }) => setData(data?.products));
   };
 
-  const [sortOrder, setSortOrder] = useState("a-z");
+  const handleChange = (event) => {
+    const name = event.target.name;
+    const value = event.target.value;
+    setInputs((values) => ({ ...values, [name]: value }));
+  };
 
+
+  const cartSubmit = (product_id) => {
+    http.post('/cart',{user_id:user.id,type:1,product_id:product_id,qty:1}).then((res)=>{
+      alert('done');
+    })
+  };
+
+  const [sortOrder, setSortOrder] = useState("a-z");
   const handleSort = (event) => {
     const selectedOption = event.target.value;
     setSortOrder(selectedOption);
@@ -67,22 +81,29 @@ const Menu = () => {
 
         <div className="all-products">
           {data.map((props) => (
-            <div className="product" key={props.id}>
-              <img src={props.photo} alt="" />
-              <div className="product-info">
-                <Link
-                  to={`/productdetails/${props.id}`}
-                  className="product-title"
-                >
-                  {props.name}
-                </Link>
+            
+              <div className="product" key={props.id}>
+                <input type="hidden" name="product_id" value={props.id || ""} onChange={handleChange} />
+                <img src={props.photo} alt="" />
+                <div className="product-info">
+                  <Link
+                    to={`/productdetails/${props.id}`}
+                    className="product-title"
+                  >
+                    {props.name}
+                  </Link>
 
-                <p className="product-price">{props.sale_price}</p>
-                <Link to="/cart" className="primary-button">
-                  Add to Cart
-                </Link>
+                  <p className="product-price font-bold">RS.{props.sale_price}</p>
+                  <button
+                    type="submit"
+                    className="primary-button"
+                    onClick={() => cartSubmit(props.id)}
+                  >
+                    Add to Cart
+                  </button>
+                </div>
               </div>
-            </div>
+           
           ))}
         </div>
       </div>

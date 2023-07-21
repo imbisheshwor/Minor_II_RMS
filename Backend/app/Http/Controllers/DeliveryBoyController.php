@@ -41,9 +41,6 @@ class DeliveryBoyController extends Controller
                 'name' => 'required',
                 'address'=> 'required',
                 'salary' => 'required',
-                'photo' => 'required',
-                'photo.*' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-                'phone'=> 'required',
                 'email' => 'required|unique:users,email,' . $request->email,
                 'password' => 'required',
             ]);
@@ -66,6 +63,7 @@ class DeliveryBoyController extends Controller
                     'name' =>$request->name,
                     'email' =>$request->email,
                     'password' => Hash::make($request->password),
+                    'phone' => $request->phone,
                     'role' => 'delivery',
                 ]);
               

@@ -76,7 +76,7 @@ function($router){
 
 
     Route::post('cart',[CartContrller::class,'store']);
-    Route::post('see-table-or-user-cart/{id}',[CartContrller::class,'seeTableCart']);
+    Route::post('see-table-or-user-cart',[CartContrller::class,'seeTableCart']);
     Route::get('cart/{cart}',[CartContrller::class,'show']);
     Route::post('cart-update/{p_id}',[CartContrller::class,'update']);
     Route::post('cart/delete-one/{cart}',[CartContrller::class,'destroy']);
@@ -84,6 +84,8 @@ function($router){
 
 
     Route::post('order',[OrderController::class,'store']);
+    Route::get('order',[OrderController::class,'index']);
+
     Route::post('order/{table_id}',[OrderController::class,'table_order']); // order  of specific table
     Route::post('bills-order/{table_id}',[OrderController::class,'testBills']); 
 

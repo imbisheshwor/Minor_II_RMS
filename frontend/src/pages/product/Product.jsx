@@ -21,46 +21,6 @@ import { useState, useEffect } from "react";
 import AuthUser from "../../AuthUser";
 
 const User = () => {
-//   const rows = [
-//     {
-//       id: 1,
-//       img: "/assets/momo.jpeg",
-//       product: "momo",
-//       price: 120,
-//       category: "Appitizer",
-//     },
-//     {
-//       id: 2,
-//       img: "/assets/momo.jpeg",
-//       product: "momo",
-//       price: 120,
-//       category: "Appitizer",
-//     },
-//     {
-//       id: 3,
-//       img: "/assets/momo.jpeg",
-//       product: "momo",
-//       price: 120,
-//       category: "Appitizer",
-//     },
-//     {
-//       id: 4,
-//       img: "/assets/momo.jpeg",
-//       product: "momo",
-//       price: 120,
-//       category: "Appitizer",
-//     },
-//   ];
-// const [data, setData] = useState([])
-
-//   const fetchInfo = async () => {
-//     return await  http.get('/product')
-//       .then(({data}) => setData(data?.products));
-//   }
-
-//   useEffect(() => {
-//     fetchInfo();
-//   }, [])
 const {user,http} = AuthUser();
 const [data, setData] = useState([])
 

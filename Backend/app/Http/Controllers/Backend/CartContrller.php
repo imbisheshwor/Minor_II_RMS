@@ -37,13 +37,16 @@ class CartContrller extends Controller
             $validator = Validator::make($request->all(), [
                 'type' => 'required',
                 'user_id' => 'required',
-                'items' => 'required',  
+                'product_id' => 'required',
+                'qty' => 'required'
             ]);
         }else if($request->type == 2){
             $validator = Validator::make($request->all(), [
                 'type' => 'required',
                 'table_id' => 'required',
-                'items' => 'required',  
+                'product_id' => 'required',
+                'qty' => 'required'
+                
             ]);
         }
         
@@ -88,14 +91,12 @@ class CartContrller extends Controller
                         ],500);
                       
                     }
-                    foreach ($request->items as $item) {
                         cart_details::create([
-                            'cart_id' =>$cart_id,
-                            'product_id'=>$item['product_id'],
-                            'qty'=>$item['qty'],
+                            'cart_id' => $cart_id,
+                            'product_id'=>$request->product_id,
+                            'qty'=>$request->qty,
                         ]);
                     
-                    }
                 
                     DB::commit();
                     return response()->json([
@@ -118,13 +119,14 @@ class CartContrller extends Controller
 
     
 
-    public function seeTableCart(Request $request,$id)
+    public function seeTableCart(Request $request)
     {
      
         $cart_id = null;
         $cart_details = null;
        $product = [];
        $product_data = [];
+       $id = $request->id;
        if($request->type==1){
             $cart_id = Cart::select('id')->where('user_id',$id)->first();
        }else if($request->type==2){
@@ -134,7 +136,7 @@ class CartContrller extends Controller
                 'message' => 'inavalid type',
             ]);
        } 
-       
+      
        $cart_details = cart_details::where('cart_id',$cart_id['id'])->get();
        $total_bill =0;
        foreach ($cart_details as $cd) {

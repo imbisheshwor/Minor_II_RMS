@@ -2,21 +2,12 @@
 // import Navbar from ';
 // import QrNavbar from '../../components/Navbar';
 import QrNavbar from '../../components/QrNavbar';
-import http from '../../http';
+// import http from '../../http';
+import AuthUser from '../../AuthUser';
 import { useState,useEffect } from 'react';
 
 const QrMenu = ({ product }) => {   
-    // const [products, setProducts] = useState([]);
-    // useEffect(()=>{
-    //     fetch_all_products();
-    // },[]);
     
-    // const fetch_all_products = () => {
-    //     http.get('http://127.0.0.1:8000/api/product').then(res=>{
-            
-    //         setProducts(res.data);
-    //     })
-    // }
     
     let data = 0;
     let newData ;

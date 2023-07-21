@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->bigInteger('order_id')->unsigned();
             $table->foreign('order_id')->references('id')->on('orders');
-            $table->enum('payment_type',['cash_on_delivery','khalti','']);
+            $table->enum('payment_type',['cash_on_delivery','khalti','esewa']);
             $table->float('advance_amount',8,2)->nullable();
             $table->float('total_amount',8,2);
             $table->boolean('is_received')->default(false);

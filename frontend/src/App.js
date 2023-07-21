@@ -178,6 +178,7 @@ function App() {
             <Route path="/admin/delivery" element={<Delivery />} />
             <Route path="/admin/deliveryAdd" element={<DeliveryAdd />} />
           </Route>
+          
           <Route path="qrmenu">
               <Route index element={<QrMenu product={product} />} />
               <Route path='cart' element={<Cart carts={cart}/>}

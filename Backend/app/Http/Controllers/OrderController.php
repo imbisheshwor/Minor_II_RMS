@@ -14,16 +14,18 @@ use Validator;
 use Illuminate\Support\Facades\DB;
 
 require '../vendor/autoload.php';
-
 use Cixware\Esewa\Client;
 use Cixware\Esewa\Config;
 
 class OrderController extends Controller
 {
-   
+
     public function index()
     {
-       
+
+       $order = Order::with('order')->get();
+
+       return response()->json(['data' => $order]);
     }
 
     /**
@@ -32,7 +34,7 @@ class OrderController extends Controller
     // public function table_order($table_id)
     // {
     //     // $order =DB::select("select p.name as name,o.served as served, p.sale_price as price, od.quantity as quantity , p.sale_price * od.quantity as amount from orders o inner join order_details od on o.id = od.order_id inner join products p on p.id = od.product_id where o.table_id=1;");
-   
+
     //     // return response()->json([
     //     //     'status' => "success",
     //     //     'data' => $order,
@@ -53,12 +55,12 @@ class OrderController extends Controller
             return response()->json([
                 'message' => 'inavalid type',
             ]);
-       } 
+       }
            $order_details = Order_detail::where('order_id',$order_id['id'])->get();
            $total_bill =0;
            foreach ($order_details as $cd) {
             $product_details = Product::find($cd['product_id'])->toArray();
-        
+
             $product_name = $product_details['name'];
             $rate = $product_details['sale_price'];
             $photo = $product_details['photo'];
@@ -70,25 +72,25 @@ class OrderController extends Controller
             $res = array("id"=>$product_details['id'],"name"=>$product_name,"rate"=>$rate,"photo"=>$photo,"quantity"=>$qty,"price"=>$price);
 
             array_push($product,$res);
-            
+
            }
            return response()->json([ "order_id" => $order_id['id'],"product" =>$product, "total_bill" => $total_bill]);
-      
+
     }
-    
+
 
     public function store(Request $request)
     {
         DB::beginTransaction();
-        try {
+        // try {
             if($request->type=='serve'){
                 $id = null;
                 $validator = Validator::make($request->all(), [
                     'type' => 'required',
                     'table_id' => 'required',
-                    'items' => 'required',  
+                    'items' => 'required',
                 ]);
-    
+
                 if($validator->fails()){
                     return response()->json([
                         'status' => 422,
@@ -100,7 +102,7 @@ class OrderController extends Controller
                         'table_id' => $request->table_id,
                     ]);
                     $order_id = $order->id;
-                    
+
                     $total_bill =0;
                     foreach ($request->items as $item) {
                         Order_detail::create([
@@ -108,43 +110,43 @@ class OrderController extends Controller
                             'product_id'=>$item['product_id'],
                             'qty'=>$item['qty'],
                         ]);
-                        
+
                     }
                     $product_price = Product::find($item['product_id'])->first();
                     $total_bill = $total_bill+$product_price['sale_price']*$item['qty'];
 
-                    
+
                 }
-               
+
                 Payment::create([
                     'order_id' =>$order_id,
                     'advance_amount' =>null,
                     'total_amount' => $total_bill,
-                ]); 
+                ]);
                    DB::commit();
 
-                    
+
 
                    return response()->json([
                     'message'=>MessageDisplay::ORDER_PLACED,
                    ]);
 
-                
+
             }else if($request->type == 'delivered'){
                 // to free delivered rider
                 $free_ids = [];
                 $db_boys_id = DeliveryBoy::select('id')->where('is_free',1)->get();
-        
+
                 foreach ($db_boys_id as $id) {
                    array_push($free_ids,$id['id']);
                 }
                 $ran_num = rand(0,$db_boys_id->count()-1);
-                
+
                 $validator = Validator::make($request->all(), [
                     'type' => 'required',
                     'user_id' => 'required',
                     'items' => 'required',
-                    'delivery_address' => 'required',  
+                    'delivery_address' => 'required',
                 ]);
                 if($validator->fails()){
                     return response()->json([
@@ -158,19 +160,19 @@ class OrderController extends Controller
                         'delivery_address'=>$request->delivery_address,
                         'assigned_delivery_boy_id' => $free_ids[$ran_num],
                     ]);
-                  
+
                     $order_id = $order->id;
                     $total_bill =0;
                     foreach ($request->items as $item) {
                         Order_detail::create([
                             'order_id' =>$order_id,
-                            'product_id'=>$item['product_id'],
-                            'qty'=>$item['qty'],
+                            'product_id'=>$item['id'],
+                            'qty'=>$item['quantity'],
                         ]);
-                        $product_price = Product::find($item['product_id'])->first();
-                        $total_bill = $total_bill+$product_price['sale_price']*$item['qty'];
+                        $product_price = Product::find($item['id'])->first();
+                        $total_bill = $total_bill+$product_price['rate']*$item['quantity'];
 
-                        
+
                     }
                     // dd($total_bill);
                     Payment::create([
@@ -179,7 +181,7 @@ class OrderController extends Controller
                         'advance_amount' =>$request->advance_amount,
                         'total_amount' => $total_bill,
                         'payment_verified'=>"null",
-                    ]); 
+                    ]);
                    DB::commit();
 ############################  E-SEWA    ##################################################
                 //    $successUrl = url('/success');
@@ -189,7 +191,7 @@ class OrderController extends Controller
                 //     $config = new Config($successUrl, $failureUrl);
                 //     // Initialize eSewa client.
                 //     $esewa = new Client($config);
-                    
+
                 //     $esewa->process($order_id, $request->advance_amount, 0, 0, 0);
 
                    return response()->json([
@@ -197,22 +199,22 @@ class OrderController extends Controller
                    ]);
 
                 }
-                
+
             } else {
                 return response()->json([
                     'Message' => MessageDisplay::INVALID_USER_TYPE,
                 ]);
             }
-            
-     
-           
-        } catch (\Throwable $th) {
-            DB::rollBack();
-            return response()->json([
-                'message' => MessageDisplay::ERROR_OCCERED,
-            ]);
-        }
-        
+
+
+
+        // } catch (\Throwable $th) {
+        //     DB::rollBack();
+        //     return response()->json([
+        //         'message' => MessageDisplay::ERROR_OCCERED,
+        //     ]);
+        // }
+
     }
 
 
@@ -242,10 +244,10 @@ class OrderController extends Controller
     }
 
 
- 
+
     public function testBills(Request $request, $id)
     {
-       
+
         $order_id = null;
         $order_details = null;
        $product = [];
@@ -258,12 +260,12 @@ class OrderController extends Controller
             return response()->json([
                 'message' => 'inavalid type',
             ]);
-       } 
+       }
            $order_details = Order_detail::where('order_id',$order_id['id'])->get();
            $total_bill =0;
            foreach ($order_details as $cd) {
             $product_details = Product::find($cd['product_id'])->toArray();
-        
+
             $product_name = $product_details['name'];
             $rate = $product_details['sale_price'];
             $photo = $product_details['photo'];
@@ -275,10 +277,10 @@ class OrderController extends Controller
             $res = array("id"=>$product_details['id'],"name"=>$product_name,"rate"=>$rate,"photo"=>$photo,"quantity"=>$qty,"price"=>$price);
 
             array_push($product,$res);
-            
+
            }
            return response()->json([ "order_id" => $order_id['id'],"product" =>$product, "total_bill" => $total_bill]);
-      
+
     }
 
     public function todayOrders()
@@ -287,11 +289,11 @@ class OrderController extends Controller
         $total_served = 0;
         $pending = 0;
        $today_order =  Order::query()
-        ->where('created_at', 'LIKE', "%{$today}%") 
+        ->where('created_at', 'LIKE', "%{$today}%")
         ->get();
 
         foreach ($today_order as $t) {
-            
+
             if($t['served']){
                 $total_served++;
             }else{
@@ -299,7 +301,7 @@ class OrderController extends Controller
             }
         }
 
-        
+
 
 
      //return response()->json(["Today orders"=>$s]);
@@ -308,7 +310,7 @@ class OrderController extends Controller
             "served_order" =>$total_served,
             "pending_order" =>$pending,
         ]);
-        
+
     }
 
     public function esewaPaymentSuccess()
@@ -351,5 +353,5 @@ class OrderController extends Controller
 
     }
 
-    
+
 }

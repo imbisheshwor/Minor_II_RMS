@@ -30,7 +30,6 @@ const ProductAdd = () => {
       },
 
       body: JSON.stringify(inputs),
-      // console.log(inputs);
     };
 
     fetch("http://127.0.0.1:8000/api/product", requestOptions)
