@@ -22,42 +22,21 @@ const ProductAdd = () => {
   };
 
   const submitForm = async () => {
-    // http.post('/product',inputs).then((res) =>{
-    //   console.log(res);
-    // })
-    // try {
-    //   const res = await http.post('/product', inputs)
-    //   // console.log(res.data)
-    // } catch (e) {
-    //   alert(e)
-    // }
-    // console.log(inputs);
-
-    // Now, you can make your API requests using Axios
-
     const requestOptions = {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         "X-CSRF-TOKEN": csrfToken,
       },
-<<<<<<< HEAD
-      body: JSON.stringify({ data: "your_data_here" }),
+
+      body: JSON.stringify(inputs),
+      // console.log(inputs);
     };
 
     fetch("http://127.0.0.1:8000/api/product", requestOptions)
       .then((response) => response.json())
       .then((data) => {
         alert("done");
-=======
-      body: JSON.stringify(  inputs ),
-  };
-  
-  fetch('http://127.0.0.1:8000/api/product', requestOptions)
-      .then(response => response.json())
-      .then(data => {
-         alert('done');
->>>>>>> 669a82dd8d7e8fc5835445b04d00d68991585a82
       })
       .catch((error) => {
         alert("error");
@@ -70,7 +49,7 @@ const ProductAdd = () => {
       <div className="homeContainer">
         <Navbar />
         <div className="users">
-          <div className="container">
+        <div className="container">
             <div name="myform" class="form-group">
               <FontAwesomeIcon icon={faUser} class="icon"></FontAwesomeIcon>
               {/* <div className="title">
@@ -101,7 +80,7 @@ const ProductAdd = () => {
                     onChange={handleChange}
                   />
                 </div>
-{/* 
+                {/* 
                 <div className="col-sm-4">
                   <label for="cate">Category</label>
                   <input
@@ -116,33 +95,17 @@ const ProductAdd = () => {
 
                 <div className="col-sm-4">
                   <div className="form-outline mb-4">
-                  <label for="price">Category</label>
+                    <label for="price">Category</label>
 
-                    <select className="select">
-                      <option
-                        value={inputs.catogory_id || ""}
-                        onChange={handleChange}
-                      >
-                        1
-                      </option>
-                      <option
-                        value={inputs.catogory_id || ""}
-                        onChange={handleChange}
-                      >
-                        2
-                      </option>
-                      <option
-                        value={inputs.catogory_id || ""}
-                        onChange={handleChange}
-                      >
-                        3
-                      </option>
-                      <option
-                        value={inputs.catogory_id || ""}
-                        onChange={handleChange}
-                      >
-                        4
-                      </option>
+                    <select
+                      name="catogory_id"
+                      className="select"
+                      onChange={handleChange}
+                    >
+                      <option value={"1" || ""}>1</option>
+                      <option value={"2" || ""}>2</option>
+                      <option value={"3" || ""}>3</option>
+                      <option value={"4" || ""}>4</option>
                     </select>
                   </div>
                 </div>

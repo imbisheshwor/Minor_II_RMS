@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import { useState,useEffect } from "react";
-// import http from '../http.js';
 import AuthUser from "../AuthUser";
 
 
@@ -54,9 +53,7 @@ const Login = () => {
     } else if (inputs.password === "") {
       setwarnpass(true);
     } else {
-      // alert(inputs.email +" " + inputs.password);
       http.post('/auth/login',{email:inputs.email,password:inputs.password}).then((res)=>{
-        // console.log(res.data); //save token
         setToken(res.data.user,res.data.access_token);
       })
 

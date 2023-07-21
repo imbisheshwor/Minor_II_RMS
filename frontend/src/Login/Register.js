@@ -1,13 +1,16 @@
 import React from "react";
 
 import "../Login/Login.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import VisibilityIcon from '@mui/icons-material/Visibility';
+import AuthUser from "../AuthUser";
 
 
 const Login = () => {
+  const navigate = useNavigate();
   const { useState } = React;
+  const {http} = AuthUser();
 
   const [inputs, setinputs] = useState({
     email: "",
@@ -53,7 +56,10 @@ const Login = () => {
     } else if (inputs.password === "") {
       setwarnpass(true);
     } else {
-      alert("Resigter ");
+      
+      http.post('/auth/register',{email:inputs.email,password:inputs.password,c_password:inputs.password,name:inputs.name,phone:inputs.number}).then((res)=>{
+       navigate('/login');
+      });
     }
   };
   const Eye = () => {
@@ -120,7 +126,7 @@ const Login = () => {
                   type="number"
                   placeholder="Enter your phone number"
                   name="number"
-                  value={inputs.name}
+                  value={inputs.number || ""}
                   onChange={inputEvent} />
                 <p className={` ${danger ? "danger" : ""}`}>
                   <i className="fa fa-warning"></i>Enter Your Phone Number

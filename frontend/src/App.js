@@ -106,6 +106,7 @@ import AuthUser from './AuthUser';
 
 import { useNavigate } from 'react-router-dom';
 import { alertTitleClasses } from '@mui/material';
+import RouteGuard from './RouteGuard';
 
 
 
@@ -163,7 +164,7 @@ function App() {
           <Route path="bookatable" element={<Bookatable />} /> 
 
 
-          <Route path="admin">
+          <Route path="admin" element={<RouteGuard />}>
             <Route index element={<Home />} />
             <Route path="/admin/users" element={<User />} />
             <Route path=":userId" element={<UserView />} />

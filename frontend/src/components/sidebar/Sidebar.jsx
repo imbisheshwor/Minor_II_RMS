@@ -1,17 +1,11 @@
 import "./Sidebar.scss";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import {faUserTie} from '@fortawesome/free-solid-svg-icons';
 import {faHouse,faUser,faStore,faCreditCard,faTruck,faChartSimple,faBell,faRightToBracket,faGear,faIdCardClip,faRightFromBracket} from '@fortawesome/free-solid-svg-icons';
 import { Link } from "react-router-dom";
-import {AuthUser,logout} from "../../AuthUser";
-// import 'bootstrap/dist/css/bootstrap.min.css';
-// import { Container, Row, Col } from 'react-bootstrap';
-
-
-
+import AuthUser from "../../AuthUser";
 
 const Sidebar = () => {
-  const {token} = AuthUser();
+  const {token,logout} = AuthUser();
 
   const logOutUser = () =>{
     if(token != undefined){
@@ -19,10 +13,6 @@ const Sidebar = () => {
     }
   }
 
-  //     const styles={
-  //        backgroundColor:"black",
-  //        fontSize:" 14px"
-  //  };
   return (
     <div className="asidebar">
       
@@ -34,7 +24,6 @@ const Sidebar = () => {
       </div>
       <hr/>
       <div className="center">
-     {/* style={styles} */} 
         <ul >
           <p className="title">MAIN</p>
           <Link to="/admin" style={{ textDecoration: "none" }}>
@@ -71,7 +60,11 @@ const Sidebar = () => {
             <span>Delivery</span>
           </li>
           </Link>
-          <p className="title">INFO</p>
+          <p className="title">QR-Menu</p>
+          <li>
+            <FontAwesomeIcon icon={faCreditCard}className="icon" />
+            <span>Orders</span>
+          </li>
           <li>
             <FontAwesomeIcon icon={faChartSimple} className="icon" />
             <span>Stats</span>

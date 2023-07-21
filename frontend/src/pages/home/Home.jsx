@@ -11,11 +11,7 @@ import AuthUser from '../../AuthUser';
 import { useNavigate } from 'react-router-dom';
 
 const Home =() =>{
-    const navigate = useNavigate();
-    const {getToken} = AuthUser();
-    if(!getToken()){
-        navigate('/login');
-    }else{
+   
         return(
             <div className="home">
                     <DarkModeContextProvider>
@@ -44,7 +40,7 @@ const Home =() =>{
         
                 </div>
             );
-    }
+    
     
 };
 export default Home;

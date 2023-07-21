@@ -18,65 +18,61 @@ import Stack from "@mui/material/Stack";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from "react";
-import http from "../../http";
+import AuthUser from "../../AuthUser";
 
 const User = () => {
-  const rows = [
-    {
-      id: 1,
-      img: "/assets/momo.jpeg",
-      product: "momo",
-      price: 120,
-      category: "Appitizer",
-    },
-    {
-      id: 2,
-      img: "/assets/momo.jpeg",
-      product: "momo",
-      price: 120,
-      category: "Appitizer",
-    },
-    {
-      id: 3,
-      img: "/assets/momo.jpeg",
-      product: "momo",
-      price: 120,
-      category: "Appitizer",
-    },
-    {
-      id: 4,
-      img: "/assets/momo.jpeg",
-      product: "momo",
-      price: 120,
-      category: "Appitizer",
-    },
-  ];
-//   const [products,setProducts] = useState([]);
+//   const rows = [
+//     {
+//       id: 1,
+//       img: "/assets/momo.jpeg",
+//       product: "momo",
+//       price: 120,
+//       category: "Appitizer",
+//     },
+//     {
+//       id: 2,
+//       img: "/assets/momo.jpeg",
+//       product: "momo",
+//       price: 120,
+//       category: "Appitizer",
+//     },
+//     {
+//       id: 3,
+//       img: "/assets/momo.jpeg",
+//       product: "momo",
+//       price: 120,
+//       category: "Appitizer",
+//     },
+//     {
+//       id: 4,
+//       img: "/assets/momo.jpeg",
+//       product: "momo",
+//       price: 120,
+//       category: "Appitizer",
+//     },
+//   ];
+// const [data, setData] = useState([])
 
-//   useEffect(()=>{
-//     fetchAllProducts();
-//   },[]);
+//   const fetchInfo = async () => {
+//     return await  http.get('/product')
+//       .then(({data}) => setData(data?.products));
+//   }
 
-// const fetchAllProducts = () =>{
-//    http.get('http://127.0.0.1:8000/api/product').then(res=>{
-//     setProducts(res.data);
-//   })
-// }
-
-// console.log(products);
-
+//   useEffect(() => {
+//     fetchInfo();
+//   }, [])
+const {user,http} = AuthUser();
 const [data, setData] = useState([])
-  // const [menuDataItem] = useState(menuData)
 
-  const fetchInfo = async () => {
-    return await  http.get('/product')
-      .then(({data}) => setData(data?.products));
+ 
+  useEffect(()=>{
+    fetchProductDetail();
+  },[]);
+
+  const fetchProductDetail = () =>{
+    http.get('/product').then(({data})=>
+      setData(data?.products));
   }
-
-  useEffect(() => {
-    fetchInfo();
-  }, [])
-
  
 
 

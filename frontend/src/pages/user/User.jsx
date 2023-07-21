@@ -17,23 +17,26 @@ import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';  
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-import http from "../../http";
-
+import AuthUser from "../../AuthUser";
 
 const User = () => {
+  const {http} = AuthUser();
   const [data, setData] = useState([])
-  // const [menuDataItem] = useState(menuData)
+  useEffect(()=>{
+    fetchProductDetail();
+  },[]);
 
-  const fetchInfo = async () => {
-    return await  http.get('/auth/users')
-      .then(({data}) => setData(data?.products));
+  // const fetchProductDetail = () =>{
+  //   http.get('/auth/users').then((res)=>{
+  //     console.log(res.data);
+  //   })
+ 
+  // }
+  const fetchProductDetail = () =>{
+    http.get('/auth/users').then(({data})=>
+      setData(data?.users));
   }
-
-  useEffect(() => {
-    fetchInfo();
-  }, [])
   
-  console.log(data);
 
 
     const rows = [
@@ -86,13 +89,13 @@ const User = () => {
             <TableRow>
               <TableCell className="tableCell">ID</TableCell>
               <TableCell className="tableCell">User</TableCell>
-              <TableCell className="tableCell">Address</TableCell>
+              <TableCell className="tableCell">Name</TableCell>
               <TableCell className="tableCell">Email</TableCell>
               <TableCell className="tableCell">Action</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {rows.map((row) => (
+            {data.map((row) => (
               <TableRow key={row.id}>
                 <TableCell className="tableCell">{row.id}</TableCell>
                 <TableCell className="tableCell">
@@ -101,7 +104,7 @@ const User = () => {
                     {row.customer}
                   </div>
                 </TableCell>
-                <TableCell className="tableCell">{row.address}</TableCell>
+                <TableCell className="tableCell">{row.name}</TableCell>
                 <TableCell className="tableCell">{row.email}</TableCell>
                 <TableCell className="tableCell">
                    <Link to="/userView" style={{ textDecoration: "none" }}>
@@ -109,7 +112,7 @@ const User = () => {
                     </Link>
                     <Link to="/" style={{ textDecoration: "none" }}>
                    <FontAwesomeIcon icon={faPenToSquare} style={{ color:"blue",padding:"12"}}></FontAwesomeIcon>
-                   </Link>
+                   </Link>  
                    
                    <Link to="/" style={{ textDecoration: "none" }}>
                     <FontAwesomeIcon icon={faTrash}style={{ color:"red",padding:"12"}}></FontAwesomeIcon >

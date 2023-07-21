@@ -21,8 +21,15 @@ class seed extends Seeder
             'name' => "Drinks",
         ]);
         Catogory::create([
-            'name' => "food",
+            'name' => "Dinner",
         ]);
+        Catogory::create([
+            'name' => "Snack",
+        ]);
+        Catogory::create([
+            'name' => "Fast Food",
+        ]);
+
 
        
         Product::create([
@@ -62,12 +69,14 @@ class seed extends Seeder
         User::create([
             'name' =>"Bisheshwor",
             'email' => 'admin@rms.com',
+            'phone' =>'9848008689',
             'role' => 'admin',
             'password' => Hash::make('rms@123')
         ]);
         User::create([
             'name' =>"Bibash",
             'email' => 'user@rms.com',
+            'phone' =>'9848008689',
             'role' => 'user',
             'password' => Hash::make('rms@123')
         ]); 

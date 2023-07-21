@@ -2,8 +2,15 @@
 
 namespace Database\Seeders;
 
+
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Catogory;
+use App\Models\Product;
+use App\Models\Table;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -12,11 +19,68 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
+        Catogory::create([
+            'name' => "Drinks",
+        ]);
+        Catogory::create([
+            'name' => "Dinner",
+        ]);
+        Catogory::create([
+            'name' => "Snack",
+        ]);
+        Catogory::create([
+            'name' => "Fast Food",
+        ]);
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+
+       
+        Product::create([
+            'name' => "Momo",
+            'sale_price' =>120,
+            'photo' => "drinks.jpgproduct.jpg",
+            'catogory_id' => 1,
+        ]);
+        Product::create([
+            'name' => "Noodle",
+            'sale_price' =>120,
+            'photo' => "drinks.jpgproduct.jpg",
+            'catogory_id' => 1,
+        ]);
+        Product::create([
+            'name' => "Chicken",
+            'sale_price' =>120,
+            'photo' => "drinks.jpgproduct.jpg",
+            'catogory_id' => 1,
+        ]);
+
+
+        Table::create([
+            'name' => "Table_1",
+            'qrcode' => "Table_3.svg",
+        ]);
+        
+        Table::create([
+            'name' => "Table_2",
+            'qrcode' => "Table_3.svg",
+        ]);
+        Table::create([
+            'name' => "Table_3",
+            'qrcode' => "Table_3.svg",
+        ]);
+
+        User::create([
+            'name' =>"Bisheshwor",
+            'email' => 'admin@rms.com',
+            'phone' =>'9848008689',
+            'role' => 'admin',
+            'password' => Hash::make('rms@123')
+        ]);
+        User::create([
+            'name' =>"Bibash",
+            'email' => 'user@rms.com',
+            'phone' =>'9848008689',
+            'role' => 'user',
+            'password' => Hash::make('rms@123')
+        ]);
     }
 }

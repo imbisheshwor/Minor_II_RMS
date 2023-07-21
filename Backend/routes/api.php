@@ -28,8 +28,8 @@ Route::get('unauthenticate',function(){
     ]);
 })->name('unauthenticate');
 
-// Route::group(['middleware' => 'api', 'prefix' => 'auth'], function ($router) {
 Route::group(['middleware' => 'api', 'prefix' => 'auth'], function ($router) {
+// Route::group(['middleware' => 'api', 'prefix' => 'auth'], function ($router) {
     Route::post('/login', [AuthController::class, 'login']);
     Route::post('/register', [AuthController::class, 'register']);
     Route::post('/logout', [AuthController::class, 'logout']);
@@ -42,8 +42,8 @@ Route::group(['middleware' => 'api', 'prefix' => 'auth'], function ($router) {
 
 
 
-// Route::group(['middleware' => 'auth:api'], remove comment to authenticate 
-Route::group([],
+Route::group(['middleware' => 'auth:api'], 
+// Route::group([],
 function($router){
     Route::get('catogory',[CatogoryController::class,'index']);
     Route::post('catogory',[CatogoryController::class,'store']);
