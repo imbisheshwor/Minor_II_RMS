@@ -34,23 +34,23 @@ Route::group(['middleware' => 'api', 'prefix' => 'auth'], function ($router) {
     Route::post('/register', [AuthController::class, 'register']);
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::post('/refresh', [AuthController::class, 'refresh']);
-    Route::get('/user-profile', [AuthController::class, 'userProfile']);   
-    Route::get('/users',[AuthController::class,'userList']); 
+    Route::get('/user-profile', [AuthController::class, 'userProfile']);
+    Route::get('/users',[AuthController::class,'userList']);
 });
 
 
 
 
 
-Route::group(['middleware' => 'auth:api'], 
-// Route::group([],
+// Route::group(['middleware' => 'auth:api'],
+Route::group([],
 function($router){
     Route::get('catogory',[CatogoryController::class,'index']);
     Route::post('catogory',[CatogoryController::class,'store']);
     Route::get('catogory/{catogory}',[CatogoryController::class,'show']);
     Route::put('catogory/{catogory}',[CatogoryController::class,'update']);
     Route::delete('catogory/{catogory}',[CatogoryController::class,'destroy']);
-    
+
     Route::get('product',[ProductController::class,'index']);
 
 
@@ -72,14 +72,14 @@ function($router){
     Route::get('table/activate/{table}',[TableController::class,'activate']);
     Route::get('table/download-qr/{table}',[TableController::class,'download']);
 
-    Route::get('qr-menu/{table_id}',[CartContrller::class,'menu']);
+    Route::get('qr-menu',[CartContrller::class,'menu']);
 
 
     Route::post('cart',[CartContrller::class,'store']);
     Route::post('see-table-or-user-cart',[CartContrller::class,'seeTableCart']);
     Route::get('cart/{cart}',[CartContrller::class,'show']);
     Route::post('cart-update/{p_id}',[CartContrller::class,'update']);
-    Route::post('cart/delete-one/{cart}',[CartContrller::class,'destroy']);
+    Route::post('cart/delete-one',[CartContrller::class,'destroy']);
     Route::delete('table-cart-reset/{table_id}',[CartContrller::class,'tableReset']);
 
 
@@ -87,7 +87,7 @@ function($router){
     Route::get('order',[OrderController::class,'index']);
 
     Route::post('order/{table_id}',[OrderController::class,'table_order']); // order  of specific table
-    Route::post('bills-order/{table_id}',[OrderController::class,'testBills']); 
+    Route::post('bills-order/{table_id}',[OrderController::class,'testBills']);
 
     Route::get('esewaPayment/success',[OrderController::class,'esewaPaymentSuccess']);
     Route::get('esewaPayment/failure',[OrderController::class,'esewaPaymentFailed']);
@@ -101,10 +101,10 @@ function($router){
     Route::get('delivery-boy/{id}',[DeliveryBoyController::class,'show']);
     Route::get('deactivate-delivery-boy/{id}',[DeliveryBoyController::class,'deactivate']);
     Route::get('activate-delivery-boy/{id}',[DeliveryBoyController::class,'activate']);
-    
+
     Route::get('deactivate-delivery-boy/delete/{id}',[DeliveryBoyController::class,'delete']);
 
 
-    
+
 
 });

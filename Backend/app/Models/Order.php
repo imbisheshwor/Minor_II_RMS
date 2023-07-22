@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Order_detail;
+use App\Models\User;
 
 class Order extends Model
 {
@@ -21,4 +22,13 @@ class Order extends Model
     public function order(){
         return $this->hasMany(Order_detail::class);
     }
+    // public function user(){
+    //     return $this->hasOne(User::class);
+    // }
+    public function user()
+    {
+        return $this->hasOne('App\Models\User', 'id', 'user_id');
+    }
 }
+
+

@@ -18,5 +18,6 @@ class VerifyCsrfToken extends Middleware
         'api/auth/register',
         'api/see-table-or-user-cart',
         'api/order',
+        'api/cart/delete-one',
     ];
 }

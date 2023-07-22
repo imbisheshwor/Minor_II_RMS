@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PaymentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::post('/esewa', [PaymentController::class, 'esewaPay'])->name('esewa');
+Route::get('/success', [PaymentController::class, 'esewaPaySuccess']);
+Route::get('/failure', [PaymentController::class, 'esewaPayFailed']);
